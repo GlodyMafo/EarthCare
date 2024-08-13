@@ -27,11 +27,11 @@
 
 // export default ProjectPage;
 
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import useFetchProjectDetails from '../hooks/useFetchProjectDetails';
-import Fundraiser from '../components/Fundraiser';
-import ReportCard from '../components/ReportCard';
+import React from "react";
+import { useParams } from "react-router-dom";
+import useFetchProjectDetails from "../hooks/useFetchProjectDetails";
+import Fundraiser from "../components/Fundraiser";
+import ReportCard from "../components/ReportCard";
 
 const ProjectPage = () => {
   const { id } = useParams();
@@ -43,13 +43,29 @@ const ProjectPage = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold">{project.name}</h1>
-      <img src={project.imageUrl} alt={project.name} className="w-full h-64 object-cover mt-4" />
+      <h1 className="text-4xl text-center font-bold pt-10">Project</h1>
+      <p className="text-center pt-5 mx-[300px]">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit repellendus
+        delectus optio repudiandae qui ea facilis, aut necessitatibus facere id.{" "}
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat commodi
+        reprehenderit provident assumenda, odit consequuntur quibusdam natus
+        voluptatem consequatur cupiditate. Culpa architecto iusto mollitia eaque
+        dolor!
+      </p>
+      <h1 className="text-2xl font-bold">{project.name}</h1>
+      <img
+        src={project.imageUrl}
+        alt={project.name}
+        className="w-full h-64 object-cover mt-4"
+      />
       <p className="mt-4">{project.description}</p>
-      <Fundraiser project={project} onDonate={() => alert(`Donate to project ${project.id}`)} />
+      <Fundraiser
+        project={project}
+        onDonate={() => alert(`Donate to project ${project.id}`)}
+      />
       <div className="mt-8">
         <h2 className="text-2xl font-bold">Reports</h2>
-        {project.reports.map(report => (
+        {project.reports.map((report) => (
           <ReportCard key={report.id} report={report} />
         ))}
       </div>
