@@ -10,29 +10,29 @@ const ProjectFilters = ({ onFilterChange }) => {
   };
 
   return (
-    <div className="p-4 bg-white shadow-md rounded-lg mb-4">
-      <h2 className="text-xl font-bold mb-2">Filters</h2>
+    <div className="p-4 bg-white shadow-md rounded-lg mb-4 h-[600px]">
+      <h2 className="text-xl font-bold mb-6 mt-20">Filters</h2>
       <div>
         <label className="block text-gray-700">Region:</label>
         <input
           type="text"
           value={region}
           onChange={(e) => setRegion(e.target.value)}
-          className="border p-2 w-full mb-2"
+          className="border p-2 w-full mb-6"
         />
         <label className="block text-gray-700">Tree Type:</label>
         <input
           type="text"
           value={treeType}
           onChange={(e) => setTreeType(e.target.value)}
-          className="border p-2 w-full mb-2"
+          className="border p-2 w-full mb-6"
         />
         <label className="block text-gray-700">Status:</label>
         <input
           type="text"
           value={status}
           onChange={(e) => setStatus(e.target.value)}
-          className="border p-2 w-full mb-2"
+          className="border p-2 w-full mb-6"
         />
         <button
           onClick={applyFilters}

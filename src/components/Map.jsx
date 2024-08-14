@@ -11,9 +11,9 @@ const Map = () => {
   if (error) return <div>Error loading projects</div>;
 
   return (
-    <div>
+    <div className='flex justify-around'>
       <ProjectFilters onFilterChange={setFilters} />
-      <MapContainer center={[51.505, -0.09]} zoom={3} className="h-96">
+      <MapContainer center={[15.505, -0.09]} zoom={3} className="h-[600px] w-[70%] rounded-xl">
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -26,6 +26,6 @@ const Map = () => {
       </MapContainer>
     </div>
   );
-};
+};  
 
 export default Map;
