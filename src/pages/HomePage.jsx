@@ -27,9 +27,10 @@
 // export default HomePage;
 
 import React from "react";
-import Map from "../components/Map";
+import Map from "../components/MapComponent";
 import Fundraiser from "../components/Fundraiser";
 import useFetchProjects from "../hooks/useFetchProjects";
+import MapComponent from "../components/MapComponent";
 
 const HomePage = () => {
   const { data: projects, error } = useFetchProjects();
@@ -117,32 +118,29 @@ const HomePage = () => {
         </div>
       </div>
 
+      <div className="bg-[url('src/images/bgh.jpg')] bg-cover bg-center h-[350px] ">
+        <div className="bg-black bg-opacity-50 p-8 text-white h-[350px] text-center flex justify-around wrap pt-32 mx-20">
+          <div className="text-center">
+            <p className="text-3xl font-bold mb-2">500+</p>
+            <p className="text-2xl ">LOREM</p>
+          </div>
 
-<div className="bg-[url('src/images/bgh.jpg')] bg-cover bg-center h-[350px] ">
-<div className="bg-black bg-opacity-50 p-8 text-white h-[350px] text-center flex justify-around wrap pt-32 mx-20">
-  <div className="text-center">
-    <p className="text-3xl font-bold mb-2">500+</p>
-    <p className="text-2xl ">LOREM</p>
-  </div>
+          <div className="text-center">
+            <p className="text-3xl font-bold mb-2">500+</p>
+            <p className="text-2xl ">LOREM</p>
+          </div>
 
-  <div className="text-center">
-    <p className="text-3xl font-bold mb-2">500+</p>
-    <p className="text-2xl ">LOREM</p>
-  </div>
+          <div className="text-center">
+            <p className="text-3xl font-bold mb-2">500+</p>
+            <p className="text-2xl ">LOREM</p>
+          </div>
 
-  <div className="text-center">
-    <p className="text-3xl font-bold mb-2">500+</p>
-    <p className="text-2xl ">LOREM</p>
-  </div>
-
-  <div className="text-center">
-    <p className="text-3xl font-bold mb-2">500+</p>
-    <p className="text-2xl ">LOREM</p>
-  </div>
-  
-</div>
-</div>
-
+          <div className="text-center">
+            <p className="text-3xl font-bold mb-2">500+</p>
+            <p className="text-2xl ">LOREM</p>
+          </div>
+        </div>
+      </div>
 
       <div className="container mx-auto p-4 ">
         <h1 className="text-3xl mt-10 font-bold mb-8 text-center">
@@ -150,44 +148,42 @@ const HomePage = () => {
         </h1>
 
         <p className="mx-[300px] text-center mb-10">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae hic unde ea culpa voluptatibus eos ratione quod neque ex, obcaecati a, reiciendis explicabo!
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae
+          hic unde ea culpa voluptatibus eos ratione quod neque ex, obcaecati a,
+          reiciendis explicabo!
         </p>
-        <Map />
-
-        <div className="mt-8 ml-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {projects.map((project) => (
-            <Fundraiser
-              key={project.id}
-              project={project}
-              onDonate={handleDonate}
-            />
-          ))}
-        </div>
 
         <div>
+        <MapComponent />
+        </div>
+       
+      </div>
+
+     
+
+      {/* <div className="">
           <h2 className="text-3xl mt-32 font-bold text-center">
             NOS PARTENAIRES
           </h2>
           <div className="flex justify-around">
             <div className="w-[250px]">
-            <img src="public/Artboard 1xhdpi.png" alt="" />
+              <img src="public/Artboard 1xhdpi.png" alt="" />
             </div>
 
             <div className="w-[250px]">
-            <img src="public/Artboard 1xhdpi.png" alt="" />
+              <img src="public/Artboard 1xhdpi.png" alt="" />
             </div>
 
             <div className="w-[250px]">
-            <img src="public/Artboard 1xhdpi.png" alt="" />
+              <img src="public/Artboard 1xhdpi.png" alt="" />
             </div>
 
             <div className="w-[250px]">
-            <img src="public/Artboard 1xhdpi.png" alt="" />
+              <img src="public/Artboard 1xhdpi.png" alt="" />
             </div>
-            
           </div>
-        </div>
-      </div>
+        </div> */}
+
     </>
   );
 };

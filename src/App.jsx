@@ -4,9 +4,10 @@ import HomePage from './pages/HomePage';
 import ProjectPage from './pages/ProjectPage';
 import ProfilePage from './pages/ProfilePage';
 import ReportsPage from './pages/ReportsPage';
-// import ForumPage from './pages/ForumPage';
+import ForumPage from './pages/ForumPage';
 import EducationPage from './pages/EducationPage';
 import Navbar from './components/Navbar';
+import CourseDetails from './components/CourseDetails';
 
 const App = () => {
   return (
@@ -18,7 +19,8 @@ const App = () => {
           <Route path="/projects" element={<ProjectPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/reports" element={<ReportsPage />} />
-          {/* <Route path="/forum" element={<ForumPage />} /> */}
+          <Route path="/forum" element={<ForumPage />} />
+          <Route path="/cours/:id" element={<CourseDetails />} />
           <Route path="/education" element={<EducationPage />} />
         </Routes>
       </div>

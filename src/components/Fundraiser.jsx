@@ -13,7 +13,7 @@ const Fundraiser = ({ project, onDonate }) => {
 
 
 <div
-  class="group flex flex-col shadow-lg justify-start mt-12 items-start gap-2 w-96 h-56 duration-500 relative rounded-lg p-4 bg-gray-100 hover:-translate-y-2 hover:shadow-xl shadow-gray-300"
+  class="group flex flex-col shadow-lg justify-start mt-12 mb-20 items-start gap-2 w-96 h-56 duration-500 relative rounded-lg p-4 bg-gray-100 hover:-translate-y-2 hover:shadow-xl shadow-gray-300"
 >
   <div
     class="absolute duration-700 shadow-md group-hover:-translate-y-4 group-hover:-translate-x-4 -bottom-10 -right-10 w-1/2 h-1/2 rounded-lg bg-gray-200"
