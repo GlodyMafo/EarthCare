@@ -244,76 +244,84 @@ const Projets = () => {
   };
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Projets</h1>
+    <div className="">
+      <div className="flex flex-wrap align-center bg-gray-200 mb-8">
+        <div className="m-6">
+          <label className="mr-2">Région:</label>
+          <select
+            className="border p-2"
+            value={regionFilter}
+            onChange={(e) => setRegionFilter(e.target.value)}
+          >
+            <option value="All">Toutes</option>
+            <option value="Europe">Europe</option>
+            <option value="Amérique">Amérique</option>
+          </select>
 
-      <div className="mb-6">
-        <label className="mr-2">Région:</label>
-        <select
-          className="border p-2"
-          value={regionFilter}
-          onChange={(e) => setRegionFilter(e.target.value)}
-        >
-          <option value="All">Toutes</option>
-          <option value="Europe">Europe</option>
-          <option value="Amérique">Amérique</option>
-        </select>
+          <label className="ml-4 mr-2">Statut:</label>
+          <select
+            className="border p-2"
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+          >
+            <option value="All">Tous</option>
+            <option value="En cours">En cours</option>
+            <option value="Complété">Complété</option>
+          </select>
+        </div>
 
-        <label className="ml-4 mr-2">Statut:</label>
-        <select
-          className="border p-2"
-          value={statusFilter}
-          onChange={(e) => setStatusFilter(e.target.value)}
-        >
-          <option value="All">Tous</option>
-          <option value="En cours">En cours</option>
-          <option value="Complété">Complété</option>
-        </select>
+        <p className="pl-4 m-6">
+          Parcourez les projets en cours et ceux terminés. Chaque projet a un
+          impact mesurable sur la planète.
+        </p>
       </div>
 
       {/* Section des projets en cours */}
       <div>
-        <h2 className="text-xl font-bold mb-4">Projets en cours</h2>
-        <div className="flex justify-between mr-10 flex-wrap">
+        <h2 className="text-xl font-bold mb-4 pl-40 ">Projets en cours</h2>
+        <div className="grid grid-cols-2 ml-32 ">
           {projects
             .filter((project) => project.status === "En cours")
             .map((project) => (
-              <div key={project.id} className="p-4 rounded-lg">
-                <div class="group flex flex-col shadow-lg justify-start mt-4 mb-20 items-start gap-2 w-80 h-56 duration-500 relative rounded-lg p-4 bg-gray-100 hover:-translate-y-2 hover:shadow-xl shadow-gray-300">
-                  <div
-                    class="absolute duration-700 shadow-md group-hover:-translate-y-4 group-hover:-translate-x-4 -bottom-10 -right-10 w-1/2 h-1/2 rounded-lg bg-gray-200"
-                    alt="image here"
-                  >
-                    <img
-                      className=" rounded-lg w-40 h-32"
-                      src={project.imageUrl}
-                      alt=""
-                    />
-                  </div>
-                  <h3 className="text-xl font-semibold">{project.name}</h3>
-                  <p>
-                    <strong>Région:</strong> {project.region}
-                  </p>
-                  <p>
-                    <strong>Type d'arbre:</strong> {project.treeType}
-                  </p>
-                  <p>
-                    <strong>Statut:</strong> {project.status}
-                  </p>
-
-                  <div className="flex justify-around">
-                    <button className="bg-secondary text-white p-2 rounded mt-4 mr-2">
-                      Donate
-                    </button>
-
-                    <button
-                      className="bg-secondary text-white p-2 rounded mt-4"
-                      onClick={() => handleDetailClick(project)}
+              <div key={project.id} className="p-4 mx-6 rounded-lg">
+                <div>
+                  <div class="group flex flex-col shadow-lg justify-start mt-4 mb-20 items-start gap-2 w-80 h-56 duration-500 relative rounded-lg p-4 bg-gray-100 hover:-translate-y-2 hover:shadow-xl shadow-gray-300">
+                    <div
+                      class="absolute duration-700 shadow-md group-hover:-translate-y-4 group-hover:-translate-x-4 -bottom-10 -right-10 w-1/2 h-1/2 rounded-lg bg-gray-200"
+                      alt="image here"
                     >
-                      {selectedProject === project.id ? "Masquer" : "Détails"}
-                    </button>
+                      <img
+                        className=" rounded-lg w-40 h-32"
+                        src={project.imageUrl}
+                        alt=""
+                      />
+                    </div>
+                    <h3 className="text-xl font-semibold">{project.name}</h3>
+                    <p>
+                      <strong>Région:</strong> {project.region}
+                    </p>
+                    <p>
+                      <strong>Type d'arbre:</strong> {project.treeType}
+                    </p>
+                    <p>
+                      <strong>Statut:</strong> {project.status}
+                    </p>
+
+                    <div className="flex justify-around">
+                      <button className="bg-secondary text-white p-2 rounded mt-4 mr-2">
+                        Donate
+                      </button>
+
+                      <button
+                        className="bg-secondary text-white p-2 rounded mt-4"
+                        onClick={() => handleDetailClick(project)}
+                      >
+                        {selectedProject === project.id ? "Masquer" : "Détails"}
+                      </button>
+                    </div>
                   </div>
                 </div>
+
 
                 {selectedProject === project.id && (
                   <div className="mt-4">
@@ -419,38 +427,49 @@ const Projets = () => {
 
       {/* Section des projets terminés */}
       <div className="mt-8">
-        <h2 className="text-xl font-bold mb-4">Projets Terminés</h2>
-        <div className="grid grid-cols-1 gap-4">
+        <h2 className="text-xl font-bold mb-4 pl-40">Projets Terminés</h2>
+
+        <div className="grid ml-32 grid-cols-2">
           {projects
             .filter((project) => project.status === "Complété")
             .map((project) => (
-              <div key={project.id} className="border p-4 rounded-lg">
-                <h3 className="text-xl font-semibold">{project.name}</h3>
-                <p>
-                  <strong>Région:</strong> {project.region}
-                </p>
-                <p>
-                  <strong>Type d'arbre:</strong> {project.treeType}
-                </p>
-                <p>
-                  <strong>Statut:</strong> {project.status}
-                </p>
-                <p>
-                  <strong>Prédiction d'Impact:</strong>{" "}
-                  {project.impactPrediction}
-                </p>
-                <p>
-                  <strong>Financement Actuel:</strong> ${project.currentFunding}{" "}
-                  / ${project.fundingGoal}
-                </p>
-                <button
-                  className="mt-2 bg-gray-500 text-white p-2 rounded"
-                  onClick={() => handleDetailClick(project)}
-                >
-                  {selectedProject === project.id
-                    ? "Masquer Détails"
-                    : "Voir Détails"}
-                </button>
+              <div key={project.id} className="p-4 pl-6 rounded-lg">
+                <div class="group flex flex-col shadow-lg justify-start mt-4 mb-20 items-start gap-2 w-80 h-56 duration-500 relative rounded-lg p-4 bg-gray-100 hover:-translate-y-2 hover:shadow-xl shadow-gray-300">
+                  <div
+                    class="absolute duration-700 shadow-md group-hover:-translate-y-4 group-hover:-translate-x-4 -bottom-10 -right-10 w-1/2 h-1/2 rounded-lg bg-gray-200"
+                    alt="image here"
+                  >
+                    <img
+                      className=" rounded-lg w-40 h-32"
+                      src={project.imageUrl}
+                      alt=""
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold">{project.name}</h3>
+                  <p>
+                    <strong>Région:</strong> {project.region}
+                  </p>
+                  <p>
+                    <strong>Type d'arbre:</strong> {project.treeType}
+                  </p>
+                  <p>
+                    <strong>Statut:</strong> {project.status}
+                  </p>
+
+                  <div className="flex justify-around">
+                    <button className="bg-secondary text-white p-2 rounded mt-4 mr-2">
+                      Donate
+                    </button>
+
+                    <button
+                      className="bg-secondary text-white p-2 rounded mt-4"
+                      onClick={() => handleDetailClick(project)}
+                    >
+                      {selectedProject === project.id ? "Masquer" : "Détails"}
+                    </button>
+                  </div>
+                </div>
+
                 {selectedProject === project.id && (
                   <div className="mt-4">
                     <h4 className="text-lg font-semibold">
