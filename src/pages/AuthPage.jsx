@@ -110,7 +110,7 @@ const AuthPage = ({ onLogin }) => {
                                     id="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full p-2 border border-gray-300 rounded-md"
+                                    className="w-full p-2 border border-primary rounded-md"
                                     required
                                 />
                             </div>
@@ -123,7 +123,7 @@ const AuthPage = ({ onLogin }) => {
                                     id="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="w-full p-2 border border-gray-300 rounded-md"
+                                    className="w-full p-2 border border-primary rounded-md"
                                     required
                                 />
                             </div>
@@ -131,7 +131,7 @@ const AuthPage = ({ onLogin }) => {
                     )}
                     <button
                         type="submit"
-                        className="w-full bg-blue-500 text-white p-2 rounded-md"
+                        className="w-full bg-primary text-white p-2 rounded-md hover:bg-secondary transition"
                     >
                         {isRegistering ? 'S\'inscrire' : 'Se connecter'}
                     </button>
@@ -142,7 +142,7 @@ const AuthPage = ({ onLogin }) => {
                                 <button
                                     type="button"
                                     onClick={() => setIsRegistering(false)}
-                                    className="text-primary"
+                                    className="text-primary hover:text-secondary"
                                 >
                                     Connexion
                                 </button>
@@ -153,7 +153,7 @@ const AuthPage = ({ onLogin }) => {
                                 <button
                                     type="button"
                                     onClick={() => setIsRegistering(true)}
-                                    className="text-primary"
+                                    className="text-primary hover:text-secondary"
                                 >
                                     Inscription
                                 </button>

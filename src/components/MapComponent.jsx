@@ -120,7 +120,7 @@ const MapComponent = () => {
                     <strong>Statut:</strong> {project.status}
                   </p>
 
-                  <button className="bg-primary text-white p-2 rounded mt-4">
+                  <button className="bg-primary hover:bg-secondary text-white p-2 rounded mt-4">
                     Donate
                   </button>
                 </div>
