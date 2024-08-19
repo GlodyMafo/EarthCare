@@ -63,9 +63,10 @@ const AuthPage = ({ onLogin }) => {
     };
 
     return (
-        <div className="flex justify-center items-center h-screen bg-gray-100">
+    
+        <div className="flex justify-center items-center h-screen bg-[url('https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center ">
             <div className="w-full max-w-sm p-6 bg-white rounded-md shadow-md">
-                <h2 className="text-2xl font-bold mb-6">{isRegistering ? 'Inscription' : 'Connexion'}</h2>
+                <h2 className="text-2xl text-primary font-bold mb-6">{isRegistering ? 'Inscription' : 'Connexion'}</h2>
                 {error && <p className="text-red-500 mb-4">{error}</p>}
                 <form onSubmit={isRegistering ? handleRegister : handleLogin}>
                     {isRegistering && (
@@ -141,7 +142,7 @@ const AuthPage = ({ onLogin }) => {
                                 <button
                                     type="button"
                                     onClick={() => setIsRegistering(false)}
-                                    className="text-blue-500"
+                                    className="text-primary"
                                 >
                                     Connexion
                                 </button>
@@ -152,7 +153,7 @@ const AuthPage = ({ onLogin }) => {
                                 <button
                                     type="button"
                                     onClick={() => setIsRegistering(true)}
-                                    className="text-blue-500"
+                                    className="text-primary"
                                 >
                                     Inscription
                                 </button>
@@ -162,6 +163,7 @@ const AuthPage = ({ onLogin }) => {
                 </form>
             </div>
         </div>
+    
     );
 };
 
