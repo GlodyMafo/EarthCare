@@ -96,7 +96,7 @@ const MapComponent = () => {
       </MapContainer>
 
       {/* Section des détails des projets filtrés */}
-      <div className="p-4 z-50">
+      <div className="p-4 z-40">
         <h2 className="text-2xl font-bold mb-4">Détails des Projets Filtrés</h2>
         {projects.length > 0 ? (
           <div className="flex justify-around flex-wrap ">
@@ -104,10 +104,9 @@ const MapComponent = () => {
               <div key={project.id} className=" p-4 rounded-lg">
                 <div class="group flex flex-col shadow-lg justify-start mt-4 mb-20 items-start gap-2 w-80 h-56 duration-500 relative rounded-lg p-4 bg-gray-100 hover:-translate-y-2 hover:shadow-xl shadow-gray-300">
                   <div
-                    class="absolute duration-700 shadow-md group-hover:-translate-y-4 group-hover:-translate-x-4 -bottom-10 -right-10 w-1/2 h-1/2 rounded-lg bg-gray-200"
+                    class="absolute z-20 duration-700 shadow-md group-hover:-translate-y-4 group-hover:-translate-x-4 -bottom-10 -right-10 w-1/2 h-1/2 rounded-lg bg-gray-200"
                     alt="image here"
                   >
-                    {" "}
                     <img src={project.imageUrl} alt="" />
                   </div>
                   <h3 className="text-xl font-semibold">{project.name}</h3>
