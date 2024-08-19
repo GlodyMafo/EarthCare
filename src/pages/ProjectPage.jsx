@@ -72,24 +72,7 @@ const allProjects = [
       "https://via.placeholder.com/200x150",
     ],
   },
-  {
-    id: 4,
-    name: "Projet E",
-    region: "Amérique",
-    treeType: "Séquoia",
-    status: "En cours",
-    impactPrediction: "50% d'amélioration de la qualité de l'air",
-    fundingGoal: 5,
-    currentFunding: 5000,
-    imageUrl: "https://via.placeholder.com/150", // Image principale
-    photos: [
-      "https://via.placeholder.com/200x150",
-      "https://via.placeholder.com/200x150",
-      "https://via.placeholder.com/200x150",
-      "https://via.placeholder.com/200x150",
-      "https://via.placeholder.com/200x150",
-    ],
-  },
+
 ];
 
 // Données fictives des statistiques générales
@@ -177,29 +160,6 @@ const generalData = {
       goalsAchieved: 15,
     },
   ],
-  4: [
-    {
-      year: 2021,
-      treesPlanted: 200,
-      funding: 5000,
-      contributions: 5000,
-      goalsAchieved: 5,
-    },
-    {
-      year: 2022,
-      treesPlanted: 600,
-      funding: 10000,
-      contributions: 5000,
-      goalsAchieved: 10,
-    },
-    {
-      year: 2023,
-      treesPlanted: 1000,
-      funding: 15000,
-      contributions: 5000,
-      goalsAchieved: 15,
-    },
-  ],
 };
 
 const COLORS = ["#8884d8", "#82ca9d", "#ffc658", "#ff7300"];
@@ -245,7 +205,7 @@ const Projets = () => {
 
   return (
     <div className="">
-      <div className="flex flex-wrap align-center bg-gray-200 mb-8">
+      <div className="flex flex-wrap align-center bg-gray-200 ">
         <div className="m-6">
           <label className="mr-2">Région:</label>
           <select
@@ -277,13 +237,17 @@ const Projets = () => {
       </div>
 
       {/* Section des projets en cours */}
-      <div>
-        <h2 className="text-xl font-bold mb-4 pl-40 ">Projets en cours</h2>
-        <div className="grid grid-cols-2 ml-32 ">
+      <div className="flex h-auto">
+        <div className="w-[25%] ">
+        <img className="h-[800px]" src="https://images.unsplash.com/photo-1519821172144-4f87d85de2a1?q=80&w=1951&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+        </div>
+      <div className="75%">
+        <h2 className="text-xl font-bold mb-4 pl-10 pt-4 ">Projets en cours</h2>
+        <div className="mx-4 ">
           {projects
             .filter((project) => project.status === "En cours")
             .map((project) => (
-              <div key={project.id} className="p-4 mx-6 rounded-lg">
+              <div key={project.id} className="p-4  rounded-lg">
                 <div>
                   <div class="group flex flex-col shadow-lg justify-start mt-4 mb-20 items-start gap-2 w-80 h-56 duration-500 relative rounded-lg p-4 bg-gray-100 hover:-translate-y-2 hover:shadow-xl shadow-gray-300">
                     <div
@@ -308,12 +272,12 @@ const Projets = () => {
                     </p>
 
                     <div className="flex justify-around">
-                      <button className="bg-secondary text-white p-2 rounded mt-4 mr-2">
+                      <button className="bg-primary text-white p-2 rounded mt-4 mr-2">
                         Donate
                       </button>
 
                       <button
-                        className="bg-secondary text-white p-2 rounded mt-4"
+                        className="bg-primary text-white p-2 rounded mt-4"
                         onClick={() => handleDetailClick(project)}
                       >
                         {selectedProject === project.id ? "Masquer" : "Détails"}
@@ -325,7 +289,7 @@ const Projets = () => {
 
                 {selectedProject === project.id && (
                   <div className="mt-4">
-                    <h4 className="text-lg font-semibold">
+                    <h4 className="text-lg font-semibold pb-8">
                       Statistiques Générales
                     </h4>
                     <ResponsiveContainer width="100%" height={300}>
@@ -395,7 +359,7 @@ const Projets = () => {
                         <Legend />
                       </PieChart>
                     </ResponsiveContainer>
-                    <h4 className="font-bold">Photos du projet :</h4>
+                    <h4 className="text-lg font-semibold pb-8">Photos du projet :</h4>
 
                     <div className="grid gap-4">
                       <div>
@@ -424,12 +388,17 @@ const Projets = () => {
             ))}
         </div>
       </div>
+      </div>
+
+      <hr className=" mt-" />
 
       {/* Section des projets terminés */}
       <div className="mt-8">
-        <h2 className="text-xl font-bold mb-4 pl-40">Projets Terminés</h2>
+        <h2 className="text-xl font-bold mb-4 pl-6">Projets Terminés</h2>
 
-        <div className="grid ml-32 grid-cols-2">
+        
+
+        <div className="grid grid-cols-2">
           {projects
             .filter((project) => project.status === "Complété")
             .map((project) => (
@@ -457,12 +426,12 @@ const Projets = () => {
                   </p>
 
                   <div className="flex justify-around">
-                    <button className="bg-secondary text-white p-2 rounded mt-4 mr-2">
+                    <button className="bg-primary text-white p-2 rounded mt-4 mr-2">
                       Donate
                     </button>
 
                     <button
-                      className="bg-secondary text-white p-2 rounded mt-4"
+                      className="bg-primary text-white p-2 rounded mt-4"
                       onClick={() => handleDetailClick(project)}
                     >
                       {selectedProject === project.id ? "Masquer" : "Détails"}
@@ -472,7 +441,7 @@ const Projets = () => {
 
                 {selectedProject === project.id && (
                   <div className="mt-4">
-                    <h4 className="text-lg font-semibold">
+                    <h4 className="text-lg mb-6 font-semibold">
                       Statistiques Générales
                     </h4>
                     <ResponsiveContainer width="100%" height={300}>
@@ -542,7 +511,7 @@ const Projets = () => {
                         <Legend />
                       </PieChart>
                     </ResponsiveContainer>
-                    <h4 className="font-bold">Photos du projet :</h4>
+                    <h4 className="text-lg font-semibold pb-8">Photos du projet :</h4>
 
                     <div className="grid gap-4">
                       <div>

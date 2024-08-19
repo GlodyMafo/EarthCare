@@ -48,15 +48,17 @@ const HomePage = () => {
           <Homecard
             domaine="Projets durables"
             description="Découvrez une variété de projets visant à restaurer des forêts."
+            icon="public/sauver-la-planete.png"
           />
           <Homecard
             domaine="Suivez votre impact"
             description="Consultez en temps réel l'impact de vos contributions sur l'environnement."
-            icon="src/assets/react.svg"
+            icon="public/impact-environnemental.png"
           />
           <Homecard
             domaine="Communauté engagée"
             description="Connectez-vous avec d'autres passionnés de l'environnement."
+            icon="public/partners.png"
           />
         </div>
       </div>
