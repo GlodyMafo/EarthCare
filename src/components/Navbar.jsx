@@ -33,22 +33,19 @@ const Navbar = () => {
               Projects
             </Link>
           </li>
-          
-          <li>
-            <Link to="/reports" className="block px-4 py-2 hover:bg-primary-dark">
-              Reports
-            </Link>
-          </li>
-          <li>
-            <Link to="/forum" className="block px-4 py-2 hover:bg-primary-dark">
-              Forum
-            </Link>
-          </li>
+
           <li>
             <Link to="/education" className="block px-4 py-2 hover:bg-primary-dark">
               Education
             </Link>
           </li>
+         
+          <li>
+            <Link to="/forum" className="block px-4 py-2 hover:bg-primary-dark">
+              Forum
+            </Link>
+          </li>
+          
 
           <li>
             <Link to="/profile" className="block px-4 py-2 hover:bg-primary-dark">
