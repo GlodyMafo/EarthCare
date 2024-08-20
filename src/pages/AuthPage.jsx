@@ -71,7 +71,7 @@ const AuthPage = ({ onLogin }) => {
                 <form onSubmit={isRegistering ? handleRegister : handleLogin}>
                     {isRegistering && (
                         <div className="mb-4">
-                            <label className="block text-sm font-bold mb-2" htmlFor="newEmail">
+                            <label className="block text-sm text-primary font-bold mb-2" htmlFor="newEmail">
                                 Email
                             </label>
                             <input
@@ -86,7 +86,7 @@ const AuthPage = ({ onLogin }) => {
                     )}
                     {isRegistering && (
                         <div className="mb-6">
-                            <label className="block text-sm font-bold mb-2" htmlFor="newPassword">
+                            <label className="block text-sm text-primary font-bold mb-2" htmlFor="newPassword">
                                 Mot de passe
                             </label>
                             <input
@@ -102,7 +102,7 @@ const AuthPage = ({ onLogin }) => {
                     {!isRegistering && (
                         <>
                             <div className="mb-4">
-                                <label className="block text-sm font-bold mb-2" htmlFor="email">
+                                <label className="block text-sm text-primary font-bold mb-2" htmlFor="email">
                                     Email
                                 </label>
                                 <input
@@ -115,7 +115,7 @@ const AuthPage = ({ onLogin }) => {
                                 />
                             </div>
                             <div className="mb-6">
-                                <label className="block text-sm font-bold mb-2" htmlFor="password">
+                                <label className="block text-sm text-primary font-bold mb-2" htmlFor="password">
                                     Mot de passe
                                 </label>
                                 <input

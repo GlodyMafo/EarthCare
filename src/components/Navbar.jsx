@@ -33,11 +33,7 @@ const Navbar = () => {
               Projects
             </Link>
           </li>
-          <li>
-            <Link to="/profile" className="block px-4 py-2 hover:bg-primary-dark">
-              Profile
-            </Link>
-          </li>
+          
           <li>
             <Link to="/reports" className="block px-4 py-2 hover:bg-primary-dark">
               Reports
@@ -53,15 +49,13 @@ const Navbar = () => {
               Education
             </Link>
           </li>
+
           <li>
-            <a
-              href="#"
-              className="block px-4 py-2 hover:bg-primary-dark"
-              onClick={() => alert('Logout functionality')}
-            >
-              Logout
-            </a>
+            <Link to="/profile" className="block px-4 py-2 hover:bg-primary-dark">
+              Profile
+            </Link>
           </li>
+        
         </ul>
       </div>
     </nav>
