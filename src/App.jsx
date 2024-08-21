@@ -25,8 +25,9 @@ const App = () => {
 
   return (
     <Router>
+      <Navbar />
       <div className="min-h-screen bg-gray-100">
-        <Navbar />
+        
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<ProjectPage />} />

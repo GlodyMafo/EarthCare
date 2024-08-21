@@ -16,7 +16,7 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="bg-[url('https://images.unsplash.com/photo-1593069567131-53a0614dde1d?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center h-screen">
+      <div className="  bg-[url('https://images.unsplash.com/photo-1593069567131-53a0614dde1d?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center h-screen">
         <div className="bg-black bg-opacity-50 p-8 text-white h-screen text-center">
           <h1 className="text-5xl font-bold mt-28 mb-20">
             Agissez pour un avenir plus vert dès aujourd'hui
@@ -79,7 +79,7 @@ const HomePage = () => {
           contribuez à la restauration de notre planète.
         </p>
 
-        <div className="">
+        <div className="z-[-20]">
           <MapComponent />
         </div>
       </div>

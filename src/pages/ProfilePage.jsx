@@ -4,6 +4,7 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, Label
 } from 'recharts';
 import { jsPDF } from 'jspdf';
+import PaymentForm from '../components/PaymentForm';
 
 const COLORS = ['#8884d8', '#82ca9d', '#ffc658', '#ff7300'];
 
@@ -100,7 +101,7 @@ const ProfilePage = () => {
       </div>
 
       {/* Barre de navigation des sections */}
-      <div className="mb-6">
+      <div className="mb-2">
         <nav className="flex space-x-4 border-b mb-4">
           <button
             className={`pb-2 ${activeTab === 'dashboard' ? 'border-b-2 border-primary text-primary' : 'text-gray-500'}`}
@@ -205,33 +206,11 @@ const ProfilePage = () => {
       )}
 
       {activeTab === 'makeContribution' && (
-        <div className="mb-6">
-          <h2 className="text-xl font-bold mb-4">Faire une Contribution</h2>
-          <select
-            className="border p-2 mb-4 w-full"
-            value={selectedProject}
-            onChange={(e) => setSelectedProject(e.target.value)}
-          >
-            <option value="">Sélectionner un projet</option>
-            {user.contributions.map((contribution, index) => (
-              <option key={index} value={contribution.projectName}>
-                {contribution.projectName}
-              </option>
-            ))}
-          </select>
-          <input
-            type="number"
-            placeholder="Montant"
-            className="border p-2 mb-4 w-full"
-            value={newContribution}
-            onChange={(e) => setNewContribution(Number(e.target.value))}
-          />
-          <button
-            className="bg-primary transition hover:bg-secondary text-white p-2 rounded"
-            onClick={handleContribution}
-          >
-            Contribuer
-          </button>
+        <div className="mb-2">
+
+
+<PaymentForm/>
+
         </div>
       )}
 
