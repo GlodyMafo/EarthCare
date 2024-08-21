@@ -30,8 +30,8 @@ const CourseDetails = () => {
   }
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">{course.title}</h1>
+    <div className="p-6 mx-40">
+      <h1 className="text-2xl font-bold mb-6 text-primary">{course.title}</h1>
       <div className="border rounded-lg overflow-hidden shadow-lg mb-6">
         <video className="w-full" controls>
           <source src={course.videoUrl} type="video/mp4" />

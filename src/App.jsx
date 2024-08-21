@@ -12,6 +12,7 @@ import AdminPage from './pages/AdminPage'; // Importer la page Admin
 import Navbar from './components/Navbar';
 import CourseDetails from './components/CourseDetails';
 import AuthPage from './pages/AuthPage';
+import Footer from './components/Footer';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -58,6 +59,7 @@ const App = () => {
           <Route path="/auth" element={<AuthPage onLogin={handleLogin} />} />
         </Routes>
       </div>
+      <Footer/>
     </Router>
   );
 };
