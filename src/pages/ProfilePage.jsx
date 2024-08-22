@@ -90,10 +90,13 @@ const ProfilePage = () => {
             </button>
             <div>
               <button
-                className="mt-2 transition border-2 text-primary border-primary hover:bg-secondary hover:text-white hover:border-secondary transition p-2 rounded"
+                className="mt-2 flex transition border-2 text-primary border-primary hover:bg-secondary hover:text-white hover:border-secondary transition p-2 rounded"
                 onClick={generateProfilePDF}
               >
-                Télécharger le Rapport de Profil
+                Télécharger le Rapport de Profil  <svg class="w-6 mx-2 h-6 fill-current" height="100" preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 100" width="100" x="0" xmlns="http://www.w3.org/2000/svg" y="0">
+ <path d="M22.1,77.9a4,4,0,0,1,4-4H73.9a4,4,0,0,1,0,8H26.1A4,4,0,0,1,22.1,77.9ZM35.2,47.2a4,4,0,0,1,5.7,0L46,52.3V22.1a4,4,0,1,1,8,0V52.3l5.1-5.1a4,4,0,0,1,5.7,0,4,4,0,0,1,0,5.6l-12,12a3.9,3.9,0,0,1-5.6,0l-12-12A4,4,0,0,1,35.2,47.2Z" fill-rule="evenodd">
+ </path>
+</svg>
               </button>
             </div>
           </div>

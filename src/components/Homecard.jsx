@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export default function Homecard(props) {
   return (
@@ -10,12 +11,15 @@ export default function Homecard(props) {
           <span class="text-2xl font-semibold">{props.domaine}</span>
           <p>{props.description}</p>
         </div>
+
         <a
           class="bg-white px-4 py-1 text-[#A4BD01] rounded-md z-10 hover:scale-80 transition-all duration-500 hover:bg-[#679436] hover:text-white"
           href="#"
         >
           Voir Plus
         </a>
+
+     
         
       </div>
 

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { Link } from 'react-router-dom';
 
 // Données fictives
 const allProjects = [
@@ -120,9 +121,16 @@ const MapComponent = () => {
                     <strong>Statut:</strong> {project.status}
                   </p>
 
+                  <Link
+              to="/profile"
+              className="block px-4 py-2 hover:text-[#FCDC2A] focus:text-[#FCDC2A] hover:font-semibold transition focus:font-semibold"
+            >
+
                   <button className="bg-primary hover:bg-secondary text-white p-2 rounded mt-4">
                     Donate
                   </button>
+                  </Link>
+
                 </div>
               </div>
             ))}

@@ -31,7 +31,7 @@ const Navbar = () => {
               to="/"
               className="block px-4 py-2 hover:text-[#FCDC2A] focus:font-semibold focus:text-[#FCDC2A] hover:font-semibold"
             >
-              Home
+              Accueil
             </Link>
           </li>
           <li>
@@ -39,7 +39,7 @@ const Navbar = () => {
               to="/projects"
               className="block px-4 py-2 hover:text-[#FCDC2A] focus:text-[#FCDC2A] hover:font-semibold focus:font-semibold"
             >
-              Projects
+              Projets
             </Link>
           </li>
           <li>

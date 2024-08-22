@@ -59,6 +59,7 @@ const AdminPage = () => {
   const [newContribution, setNewContribution] = useState(0);
 
   const [isModalOpen, setIsModalOpen] = useState(false); // État pour la pop-up de modification
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false); // État pour la pop-up de modification
 
   useEffect(() => {
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -132,6 +133,13 @@ const AdminPage = () => {
             >
               Modifier Profil
             </button>
+
+            <button
+              className="mt-2 border border-primary transition hover:bg-secondary text-primary hover:border-secondary hover:text-white p-2 rounded mr-4 transition"
+              onClick={() => setIsCreateModalOpen(true)}
+            >
+              Nouveau Projet
+            </button>
             <div>
               
             </div>
@@ -144,40 +152,36 @@ const AdminPage = () => {
       <div className="mb-4">
         <div className="flex border-b">
           <button
-            className={`py-2 px-4 ${activeTab === 'projects' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
+            className={`py-2 px-4 ${activeTab === 'projects' ? 'border-b-2 border-primary text-primary' : 'text-gray-500'}`}
             onClick={() => setActiveTab('projects')}
           >
             Vue d'Ensemble des Projets
           </button>
           <button
-            className={`py-2 px-4 ${activeTab === 'stats' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
+            className={`py-2 px-4 ${activeTab === 'stats' ? 'border-b-2 border-primary text-primary' : 'text-gray-500'}`}
             onClick={() => setActiveTab('stats')}
           >
             Statistiques des Projets
           </button>
           <button
-            className={`py-2 px-4 ${activeTab === 'trends' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
-            onClick={() => setActiveTab('trends')}
+            className={`py-2 px-4 ${activeTab === 'rapport' ? 'border-b-2 border-primary text-primary' : 'text-gray-500'}`}
+            onClick={() => setActiveTab('rapport')}
           >
-            Analyse des Tendances
+            Rapport
           </button>
+        
           <button
-            className={`py-2 px-4 ${activeTab === 'impact' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
-            onClick={() => setActiveTab('impact')}
-          >
-            Impact Global
-          </button>
-          <button
-            className={`py-2 px-4 ${activeTab === 'contributions' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
-            onClick={() => setActiveTab('contributions')}
-          >
-            Contributions par Type de Projet
-          </button>
-          <button
-            className={`py-2 px-4 ${activeTab === 'topContributors' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
+            className={`py-2 px-4 ${activeTab === 'topContributors' ? 'border-b-2 border-primary text-primary' : 'text-gray-500'}`}
             onClick={() => setActiveTab('topContributors')}
           >
             Top Contributeurs
+          </button>
+
+          <button
+            className={`py-2 px-4 ${activeTab === 'users' ? 'border-b-2 border-primary text-primary' : 'text-gray-500'}`}
+            onClick={() => setActiveTab('users')}
+          >
+            Contacter
           </button>
         </div>
       </div>
@@ -192,12 +196,24 @@ const AdminPage = () => {
                 <h3 className="text-lg font-semibold mb-2">{project.projectName}</h3>
                 <p>Total Contributions: ${project.totalContributions}</p>
                 <p>Impact Total: {project.totalImpact}</p>
+                <div className="flex justify-around">
                 <button
                   onClick={() => generatePDF(project)}
-                  className="mt-4 bg-blue-500 text-white py-2 px-4 rounded"
+                  className="mt-4 bg-primary hover:bg-secondary transition flex text-white py-2 px-4 rounded"
                 >
-                  Télécharger le Rapport en PDF
+                  Télécharger le Rapport en PDF  <svg class="w-6 mx-2 h-6 fill-current" height="100" preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 100" width="100" x="0" xmlns="http://www.w3.org/2000/svg" y="0">
+ <path d="M22.1,77.9a4,4,0,0,1,4-4H73.9a4,4,0,0,1,0,8H26.1A4,4,0,0,1,22.1,77.9ZM35.2,47.2a4,4,0,0,1,5.7,0L46,52.3V22.1a4,4,0,1,1,8,0V52.3l5.1-5.1a4,4,0,0,1,5.7,0,4,4,0,0,1,0,5.6l-12,12a3.9,3.9,0,0,1-5.6,0l-12-12A4,4,0,0,1,35.2,47.2Z" fill-rule="evenodd">
+ </path>
+</svg>
                 </button>
+
+                <button
+                  onClick={() => generatePDF(project)}
+                  className="mt-4 border border-primary hover:border-red-600 hover:bg-red-600 hover:text-white text-primary py-2 px-4 rounded"
+                >
+                  Marquer comme termine
+                </button>
+              </div>
               </div>
             ))}
           </div>
@@ -256,6 +272,7 @@ const AdminPage = () => {
  <div className="mb-8 mt-8">
         <h2 className="text-2xl font-bold mb-4">Impact Global</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
           {/* Répartition par Catégorie */}
           <div className="border p-4 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold mb-2">Répartition par Catégorie</h3>
@@ -403,6 +420,120 @@ const AdminPage = () => {
                   type="button"
                   className="bg-gray-300 text-gray-700 px-4 py-2 rounded mr-2"
                   onClick={() => setIsModalOpen(false)}
+                >
+                  Annuler
+                </button>
+                <button
+                  type="submit"
+                  className="bg-primary transition hover:bg-secondary text-white px-4 py-2 rounded"
+                >
+                  Sauvegarder
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+
+
+{/* Formulaire de creation d'un projet */}
+
+{isCreateModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-lg shadow-lg w-1/2">
+            <h2 className="text-2xl font-bold mb-4">Creer un nouveau projet</h2>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const updatedUser = {
+                  ...user,
+                  name: e.target.name.value,
+                  email: e.target.email.value,
+                  description: e.target.description.value,
+                  country: e.target.country.value,
+                };
+                handleSaveProfile(updatedUser);
+              }}
+            >
+              <div className="mb-4">
+                <label className="block text-gray-700">Nom du projet</label>
+                <input
+                  type="text"
+                  name="name"
+                  className="border p-2 w-full"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700">Region</label>
+                <input
+                  type="text"
+                  name="region"
+                  className="border p-2 w-full"
+                />
+              </div>
+<div className="flex justify-between">
+              <div className="mb-4">
+                <label className="block text-gray-700">Longitude</label>
+                <input
+                  type="number"
+                  name="longitude"
+                  className="border p-2 w-full"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-gray-700">Latitude</label>
+                <input
+                  type="number"
+                  name="latitude"
+                  className="border p-2 w-full"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-gray-700">Espece d'arbre</label>
+                <input
+                  type="text"
+                  name="treeType"
+                  className="border p-2 w-full"
+                />
+              </div>
+
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700">Description</label>
+                <input
+                  type="text"
+                  name="description"
+                  className="border p-2 w-full"
+                />
+              </div>
+             
+
+              <div className="mb-4">
+                <label className="block text-gray-700">Objectif de fond (en dollars americain)</label>
+                <input
+                  type="number"
+                  name="country"
+                  className="border p-2 w-full"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-gray-700">Prediction d'impact</label>
+                <input
+                  type="text"
+                  name="country"
+                  defaultValue={user.country}
+                  className="border p-2 w-full"
+                />
+              </div>
+              <div className="flex justify-end">
+                <button
+                  type="button"
+                  className="bg-gray-300 hover:bg-red-600 hover:text-white transition text-gray-700 px-4 py-2 rounded mr-2"
+                  onClick={() => setIsCreateModalOpen(false)}
                 >
                   Annuler
                 </button>

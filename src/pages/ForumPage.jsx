@@ -57,7 +57,7 @@ const Forum = () => {
         date: new Date().toISOString().split('T')[0],
         comments: [],
       };
-      setTopics([newTopic, ...topics]); // Ajouter le nouveau sujet au début de la liste
+      setTopics([newTopic, ...topics]); 
       setNewTopicTitle('');
       setNewTopicContent('');
     }
@@ -87,10 +87,10 @@ const Forum = () => {
       <h1 className="text-2xl font-bold mb-6">Forum</h1>
 
       {/* Section FAQ */}
-      <div className="mb-6">
-        <h2 className="text-xl font-bold mb-4">FAQ</h2>
+      <div className="mb-10">
+        <h2 className="text-xl font-bold mb-4 text-primary">FAQ</h2>
         {fakeFAQ.map((faq, index) => (
-          <div key={index} className="mb-4 border p-4 rounded-lg">
+          <div key={index} className="mb-4 border border-primary p-4 rounded-lg">
             <h3
               className="text-lg font-semibold cursor-pointer"
               onClick={() => toggleFAQ(index)}
@@ -104,7 +104,7 @@ const Forum = () => {
 
       {/* Formulaire pour créer un nouveau sujet */}
       <div className="mb-6">
-        <h2 className="text-xl font-bold mb-4">Créer un Nouveau Sujet</h2>
+        <h2 className="text-xl font-bold mb-4 text-primary">Créer un Nouveau Sujet</h2>
         <input
           className="border p-2 mb-2 w-full"
           placeholder="Titre du sujet"
@@ -118,7 +118,7 @@ const Forum = () => {
           onChange={(e) => setNewTopicContent(e.target.value)}
         />
         <button
-          className="bg-green-500 text-white p-2 rounded"
+          className="bg-primary hover:bg-secondary transition text-white p-2 rounded"
           onClick={handleNewTopicSubmit}
         >
           Publier le sujet
@@ -130,12 +130,12 @@ const Forum = () => {
         {topics.map((topic) => (
           <div key={topic.id} className="mb-6 border p-4 rounded-lg">
             <h3 className="text-lg font-bold mb-2">{topic.title}</h3>
-            <p className="mb-2 text-sm">Par {topic.author} le {topic.date}</p>
+            <p className="mb-2 text-sm">Par <span className='font-bold text-primary'>{topic.author}</span> le {topic.date}</p>
             <div className="mb-4">
               <h4 className="text-md font-semibold">Commentaires</h4>
               {topic.comments.map((comment, index) => (
                 <div key={index} className="border p-2 rounded mb-2">
-                  <p className="text-sm">{comment.author} le {comment.date}</p>
+                  <p className="text-sm"> <span className='font-semibold text-primary'>{comment.author}</span> le {comment.date}</p>
                   <p>{comment.content}</p>
                 </div>
               ))}
@@ -165,7 +165,7 @@ const NewCommentForm = ({ topicId, onNewComment }) => {
         onChange={(e) => setCommentContent(e.target.value)}
       />
       <button
-        className="bg-blue-500 text-white p-2 rounded"
+        className="bg-primary hover:bg-secondary transition text-white p-2 rounded"
         onClick={handleCommentSubmit}
       >
         Publier le commentaire

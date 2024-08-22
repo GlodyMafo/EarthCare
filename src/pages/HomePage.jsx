@@ -4,15 +4,13 @@ import Fundraiser from "../components/Fundraiser";
 import useFetchProjects from "../hooks/useFetchProjects";
 import MapComponent from "../components/MapComponent";
 import Homecard from "../components/Homecard";
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const { data: projects, error } = useFetchProjects();
 
   if (error) return <div>Error loading projects</div>;
 
-  const handleDonate = (projectId) => {
-    alert(`Donate to project ${projectId}`);
-  };
 
   return (
     <>
@@ -27,9 +25,14 @@ const HomePage = () => {
             Rejoignez nous pour contribuer à des projets impactants, suivre vos
             contributions, et voir l'impact réel de vos actions.
           </p>
+          <Link
+              to="/projects"
+              className="block px-4 py-2 hover:text-[#FCDC2A] focus:text-[#FCDC2A] hover:font-semibold focus:font-semibold"
+            >
           <button className="bg-white text-primary px-8 py-4 tracking-wide font-bold rounded transition-transform transform hover:bg-green-100 hover:shadow-lg hover:scale-10">
             TROUVER UN PROJET
           </button>
+          </Link>
         </div>
       </div>
       <div className="text-center h-screen">
@@ -64,7 +67,6 @@ const HomePage = () => {
         </div>
       </div>
 
-   
          
       </div>
 
@@ -114,7 +116,7 @@ const HomePage = () => {
         <h2 className="text-3xl pt-8 font-bold text-center">
           Nos partenaires
         </h2>
-        <div className="flex justify-around">
+        <div className="flex justify-around mx-40">
           <div className="w-[250px]">
             <img src="public/Artboard 1xhdpi.png" alt="" />
           </div>
